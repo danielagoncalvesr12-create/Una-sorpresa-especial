@@ -1,0 +1,136 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+}
+
+.valentines-day {
+  position: relative;
+  cursor: pointer;
+}
+
+.envelope {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background-color: #ff6b6b;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+}
+
+.heart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 120px;
+  background-color: #ff3838;
+  border-radius: 50% 50% 0 0;
+  transform-origin: bottom;
+  transition: 0.5s;
+}
+
+.heart:after,
+.heart:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ff3838;
+  border-radius: 50% 50% 0 0;
+}
+
+.heart:before {
+  transform: rotate(-45deg) translateX(-50%);
+  transform-origin: 0 100%;
+}
+
+.heart:after {
+  transform: rotate(45deg) translateY(-50%);
+  transform-origin: 100% 100%;
+}
+
+.front {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background-color: #ff3838;
+  z-index: 10;
+}
+
+.front:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ff4d4d;
+  transform: skewX(25deg);
+  transform-origin: left;
+}
+
+.front:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ff4d4d;
+  transform: skewX(-25deg);
+  transform-origin: right;
+}
+
+.valentines-day:hover .heart {
+  transform: translate(-50%, -50%) scale(1.2) rotate(-45deg);
+}
+
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 200px;
+  z-index: 1;
+}
+
+.side {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 2;
+  transition: 0.5s;
+  transform-origin: bottom;
+}
+
+.one {
+  background-color: #ff8080;
+  z-index: 3;
+}
+
+.two {
+  background-color: #fff;
+  z-index: 2;
+  transform: rotateX(180deg);
+}
+
+.valentines-day.active .card .side.one {
+  transform: rotateX(180deg);
+}
+
+.valentines-day.active .card .side.two {
+  transform: rotateX(0deg);
+}
